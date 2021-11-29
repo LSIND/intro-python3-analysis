@@ -13,7 +13,7 @@
 - модуль matplotlib для построения графиков
 
 
-## [Анализ текста](https://github.com/LSIND/intro-to-python3-analysis/tree/master/TextAnalysis)
+## [Анализ текста](https://github.com/LSIND/intro-python3-analysis/tree/master/TextAnalysis)
 > *Использование встроенных возможностей Python для обработки текста*  
 > *Использование строкового типа str*
 
@@ -24,9 +24,9 @@
   - печатает слово (слова) с максимальной длиной
   - записывает очищенный текст в новый файл .txt (по одному слову на строку).
 
-Папка содержит файл [CrimeAndPunishment.txt](https://github.com/LSIND/intro-to-python3-analysis/blob/master/TextAnalysis/CrimeAndPunishment.txt): Ф.М. Достоевский, «Преступление и наказание», глава 6 с текстом на английском и русском языках.
+Папка содержит файл [CrimeAndPunishment.txt](https://github.com/LSIND/intro-python3-analysis/blob/master/TextAnalysis/CrimeAndPunishment.txt): Ф.М. Достоевский, «Преступление и наказание», глава 6 с текстом на английском и русском языках.
 
-## [Анализ одномерного списка](https://github.com/LSIND/intro-to-python3-analysis/tree/master/TemperaturesAnalysis)
+## [Анализ одномерного списка](https://github.com/LSIND/intro-python3-analysis/tree/master/TemperaturesAnalysis)
 > *Использование встроенных возможностей Python для анализа большого одномерного списка*
 > *Использование list, set, dict*  
 
@@ -38,9 +38,9 @@
   - печатает количество вхождений для каждого значения в виде: *температура: кол-во вхождений*, отсортированные по количеству вхождений в порядке возрастания
   - запрашивает у пользователя интервал значений температур *[a; b]* и печатает температуры и их количество вхождений, отсортированные по значению температуры от *a* до *b* в порядке возрастания
 
-Папка содержит файл [1tempdata.txt](https://github.com/LSIND/intro-to-python3-analysis/blob/master/TemperaturesAnalysis/1tempdata.txt) с набором месячных значений температур в аэропорту Хитроу с 1948 по 2016 гг.
+Папка содержит файл [1tempdata.txt](https://github.com/LSIND/intro-python3-analysis/blob/master/TemperaturesAnalysis/1tempdata.txt) с набором месячных значений температур в аэропорту Хитроу с 1948 по 2016 гг.
 
-## [Анализ многомерного списка](https://github.com/LSIND/intro-to-python3-analysis/tree/master/TrainDepAnalysis)
+## [Анализ многомерного списка](https://github.com/LSIND/intro-python3-analysis/tree/master/TrainDepAnalysis)
 > *Использование list и генераторов*  
 > *Использование модуля datetime*  
 > *Использование класса Counter из модуля collections*  
@@ -65,9 +65,9 @@
    
 - подсчитывает общее количество отправленных поездов, поездов по расписанию, поездов вышедших с задержкой и поездов, отправленных на следующий день.
 
-Папка содержит файл [depsalem.txt](https://github.com/LSIND/intro-to-python3-analysis/blob/master/TrainDepAnalysis/depsalem.txt) с набором [отправлений поездов](https://juckins.net/amtrak_status/archive/html/history.php) из г. Салем, США за период с 09/01/2018 по 09/01/2019.
+Папка содержит файл [depsalem.txt](https://github.com/LSIND/intro-python3-analysis/blob/master/TrainDepAnalysis/depsalem.txt) с набором [отправлений поездов](https://juckins.net/amtrak_status/archive/html/history.php) из г. Салем, США за период с 09/01/2018 по 09/01/2019.
 
-## [Работа с XML-данными](https://github.com/LSIND/intro-to-python3-analysis/tree/master/PlotCurrencyRates)
+## [Работа с XML-данными](https://github.com/LSIND/intro-python3-analysis/tree/master/PlotCurrencyRates)
 > *Использование модуля xml для анализа XML-данных*  
 > *Использование модуля matplotlib для построения данных*  
 
@@ -91,14 +91,14 @@
 - строит график курсов валют: Валюта / Российский рубль, используя *matplotlib*, например:  
 ![currency rates](https://www.dropbox.com/s/d2b03ndlok87q9j/ploteurotorub.PNG?raw=1)
 
-## [Подсчет количества файлов и вложенных папок](https://github.com/LSIND/intro-to-python3-analysis/tree/master/CountFilesAndFolders)
+## [Подсчет количества файлов и вложенных папок](https://github.com/LSIND/intro-python3-analysis/tree/master/CountFilesAndFolders)
 > *Использование модуля os*   
 
 На вход поступает корневая директория.   
 Скрипт рекурсивно подсчитывает количество файлов и вложенных папок.  
-Вывод для `intro-to-python3-analysis-master`:
+Вывод для `intro-python3-analysis-master`:
 ```Console
-------> intro-to-python3-analysis-master :       7 folders,  2 files
+------> intro-python3-analysis-master :  7 folders,  2 files
 --------> CountFilesAndFolders :         0 folders,  1 files
 --------> EmployeesCounts :      0 folders,  2 files
 --------> NPArrayVSList :        0 folders,  3 files
@@ -108,7 +108,7 @@
 --------> TrainDepAnalysis :     0 folders,  2 files
 ```
 
-## [Сравнение скорости работы встроенного списка (list), array из модуля Array и массива NumPy](https://github.com/LSIND/intro-to-python3-analysis/tree/master/NPArrayVSList)
+## [Сравнение скорости работы встроенного списка (list), array из модуля Array и массива NumPy](https://github.com/LSIND/intro-python3-analysis/tree/master/NPArrayVSList)
 > *Использование модуля array*  
 > *Использование модуля numpy*  
 ```python
@@ -148,7 +148,7 @@ result2 = np.dstack((N1, N2))                 # numpy arrays
 Код `deco_time.py`:
 - предоставляет функцию-декоратор без параметров, которая рассчитывает время выполнения любой функции и выводит ее имя и время выполнения (в секундах) на консоль
 
-## [Анализ csv-файла с помощью pandas](https://github.com/LSIND/intro-to-python3-analysis/tree/master/EmployeesCounts)
+## [Анализ csv-файла с помощью pandas](https://github.com/LSIND/intro-python3-analysis/tree/master/EmployeesCounts)
 > *Использование модуля pandas*
 
 Код:
@@ -170,4 +170,4 @@ import pandas as pd
  
 ![employees counts](https://www.dropbox.com/s/zplryx10b7o7iqr/plotemplcount.PNG?raw=1)
  
-Папка содержит файл [empl.csv](https://github.com/LSIND/intro-to-python3-analysis/blob/master/EmployeesCounts/empl.csv) со списком имен сотрудников, дат и времени приема на работу.
+Папка содержит файл [empl.csv](https://github.com/LSIND/intro-python3-analysis/blob/master/EmployeesCounts/empl.csv) со списком имен сотрудников, дат и времени приема на работу.
