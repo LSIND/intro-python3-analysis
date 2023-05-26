@@ -5,9 +5,9 @@
 # определить количество нанятых сотрудников за каждый день периода
 # построить столбчатую диаграмму Ox: дни, Oy: количество сотрудников
 
-import matplotlib.pyplot as plt
-import pandas as pd
 from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv('empl.csv', delimiter=',')
 df['HireDate'] = pd.to_datetime(df.HireDate)

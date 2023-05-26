@@ -8,13 +8,13 @@
 # подсчитать максимальную длину слова (слов) и вывести их на экран
 # записать в отдельный файл разделенные слова (по одному слову на строку)
 
-punct = str.maketrans("", "", ",.?!*+—;:()\"'")
+punct = str.maketrans('', '', ',.?!*+—;:()"\'')
 maxlen = 0
 maxwords = []
 
-with open("CrimeAndPunishment.txt", encoding="utf-8") as infile, open("outfile.txt", "w", encoding="utf-8") as outfile:
+with open('TextAnalysis\CrimeAndPunishment.txt', encoding='utf-8') as infile, open('TextAnalysis\outfile.txt', 'w', encoding='utf-8') as outfile:
     for abc in infile:
-        cleanwords = (abc.lower()).replace("-", " ")
+        cleanwords = (abc.lower()).replace('-', ' ')
         cleanwords = cleanwords.translate(punct)
         cleanwords = cleanwords.split()
         for word in cleanwords:
@@ -24,8 +24,8 @@ with open("CrimeAndPunishment.txt", encoding="utf-8") as infile, open("outfile.t
             elif len(word) == maxlen:
                 maxwords.append(word)
 
-        cleanwords = "\n".join(cleanwords) +"\n"
+        cleanwords = '\n'.join(cleanwords)
         outfile.write(cleanwords)
 
-print("Max length of word(s): {}".format(maxlen))
-print("List of word(s) with max length: ", maxwords)
+print(f'Max length of word(s): {maxlen}')
+print(f'List of word(s) with max length: {maxwords}')

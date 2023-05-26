@@ -4,10 +4,11 @@ This repository represents all basic tasks as an introduction to analysis using 
 
 ## Projects
 
-Projects covering intro to data analysis using **Python3.7**
+Projects covering intro to data analysis using **Python3.7 (Reviewed on 3.11)**
 - using iterative basic types: list, tuple, set, dictionary, string
 - basics of datetime module to work with date and time data
 - read/write text data and XML
+- find specified files in directory
 - basics of numpy arrays
 - pandas module for effective analysis
 - matplotlib module for plotting data
@@ -18,7 +19,7 @@ Projects covering intro to data analysis using **Python3.7**
 
 Read .txt file, delete all punctuations, break text into independent words and write them to a new .txt file. Print word(s) with maximum length.
 
-The code:
+Script:
  - reads contents from .txt file (incl. unicode) 
  - deletes all punctuations from the text
  - breaks text into independent words. In case of complex word containing hyphen it should be divided into two different words (f.e., *ninety-nine = ninety nine*).
@@ -32,7 +33,7 @@ The folder includes file [CrimeAndPunishment.txt](https://github.com/LSIND/intro
 
 Read .txt file, which contains a list of decimal numbers (temperatures), find and print maximum, minimum and average temperatures, print number of elements and unique elements, print number of occurances for every value in the form of: *temperature : occurrences*. Ask user to input an interval and print temperatures and occurences in this interval.
 
-The code:
+Script:
  - reads all text from .txt file which contains list of tempreratures
  - prints maximum, minimum and average temperatures
  - prints number of values
@@ -56,17 +57,9 @@ Read .txt file, which contains data with train departures (train no, datetime of
 | 505     | 08/10/2019 7:11   PM (Sa) |        |
 | ...     | ...                       | ...    |
 
-The code:
+Script:
 - reads .txt file with data of scheduled and actual departures of trains with the help of module *datetime*
-    ```python
-    import datetime
-    ```
-
-- counts the number of not operated trains (column *Act Dp* is empty) and prints the number of not operated trains by day of the week using the module *collections*;
-    ```python
-   from collections import Counter
-   ```
-
+- counts the number of not operated trains (column *Act Dp* is empty) and prints the number of not operated trains by day of the week using class Counter module *collections*;
 - counts the number of departed trains, on time departures, late departures and next day departures.
 
 The folder also includes [depsalem.txt](https://github.com/LSIND/intro-python3-analysis/blob/master/TrainDepAnalysis/depsalem.txt) file with a set of [train departures](https://juckins.net/amtrak_status/archive/html/history.php) from Salem in period 09/01/2018 - 09/01/2019.
@@ -77,38 +70,45 @@ The folder also includes [depsalem.txt](https://github.com/LSIND/intro-python3-a
 
 Read XML-data from [Central Bank of Russia](http://www.cbr.ru/development/SXML/) with currency information depending on period with ratio to Russian ruble. Plot the currency rates.
 
-The code (module **readxml**):
+Script **readcbr.py**:
  - reads data from [Central Bank of Russia](http://www.cbr.ru/development/SXML/) containing currency information in XML-format:
-    * [XML with currency names and codes (ids)](http://www.cbr.ru/scripts/XML_val.asp?d=0). The code should retrieve the code from the provided name, f.e. Euro = R01239;
-    * [XML with currency rates](http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=05/09/2019&date_req2=30/09/2019&VAL_NM_RQ=R01239) depending on currency code and two dates. Element < Value >  contains ratio to Russian ruble at a specific date, f.e. 1 Euro = 73,0638 Rub at 05/09/2019 (dd/mm/YY);
+    * [XML with currency names and codes (ids)](http://www.cbr.ru/scripts/XML_val.asp?d=0). Retrieve names and unique codes, f.e. Euro = R01239;
+    * [XML with currency rates](http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=05/09/2019&date_req2=30/09/2019&VAL_NM_RQ=R01239). Depends on unique currency code and two dates. Element < Value > contains ratio to Russian ruble at a specific date, f.e. 1 Euro = 73,0638 Rub at 05/09/2019 (dd/mm/YY);
     * uses modules *urllib.request* and *xml.etree.ElementTree* to retrieve and parse XML data:
-     ```python
-     from urllib.request import urlopen
-     from xml.etree.ElementTree import parse
-     ```
+  
+```python
+from urllib.request import urlopen
+from xml.etree.ElementTree import parse
+```
     
-The code (**main. py**)
+Script **main. py**:
 - provides initial variables: currency name and two dates (period). You can change it or ask user for input.
-     ```python
-     cur = "Euro"    
-     startdate = "05.09.2019"    
-     enddate = "30.09.2019"
-     ```
-- plots a graph of currency rates Currency/Russian ruble using *matplotlib*, f.e:
+  
+```python
+cur = "Euro"    
+startdate = "05.09.2019"    
+enddate = "30.09.2019"
+```
+- plots a graph of currency rates Currency/Russian ruble using *matplotlib* (if matplotlib is installed).
 
-![currency rates](https://www.dropbox.com/s/d2b03ndlok87q9j/ploteurotorub.PNG?raw=1)
+```python
+try:
+    import matplotlib.pyplot as plt
+except:
+    print('Matplotlib module not found. No plot output')
+```
+
+![currency rates](https://www.dropbox.com/s/8y5bg7mm28v98s7/plot_currency.png?raw=1)
 
 
-## [Count files and subfolders](https://github.com/LSIND/intro-python3-analysis/tree/master/CountFilesAndFolders)
+## [Count files and subfolders (opt: specify file extension)](https://github.com/LSIND/intro-python3-analysis/tree/master/CountFilesAndFolders)
 > *Using os and sys modules*   
 > *using command line arguments*
 
-```Console
-py -3 main.py C:\Users\Admin\Downloads\intro-python3-analysis-master
-```
-
 Provide the root directory and count files/subfolders inside it recursively:
 ```Console
+py -3 main.py C:\Users\Admin\Downloads\intro-python3-analysis-master
+
 ------> intro-python3-analysis-master :  7 folders,  2 files
 --------> CountFilesAndFolders :         0 folders,  1 files
 --------> EmployeesCounts :      0 folders,  2 files
@@ -119,10 +119,20 @@ Provide the root directory and count files/subfolders inside it recursively:
 --------> TrainDepAnalysis :     0 folders,  2 files
 ```
 
+Optionally you can provide file extension to search for files with specified extension (recursively):
+
+```Console
+py -3 main.py C:\Users\Admin\Downloads\intro-python3-analysis-master .txt
+
+------> intro-python3-analysis\TemperaturesAnalysis -> 1 .txt files
+------> intro-python3-analysis\TextAnalysis -> 2 .txt files
+------> intro-python3-analysis\TrainDepAnalysis -> 1 .txt files
+```
+
 ## [List vs. Array vs. Numpy Array](https://github.com/LSIND/intro-python3-analysis/tree/master/NPArrayVSList)
 > *Using array module*   
-> *Using numpy module*
-> *Create simple decorator function to count the time of execution*
+> *Using numpy module*  
+> *Create simple decorator function to count time of execution*
 
 Compare working time of built-in lists, arrays from module arrays and numpy arrays.
 ```python
@@ -130,30 +140,34 @@ import array
 import numpy as np
 ```
 
-Python built-in list without any elements (`list1 = []`) consumes 64 bytes. For every new element, it needs another 8 bytes for the reference to the new object. The new int object itself consumes 28 bytes. The size of a list `list1 = [5, 10, 15]` can be calculated with:
+Python built-in list without any elements (`list1 = []`) consumes 56 bytes. For every new element, it needs another 8 bytes for the reference to the new object. The new int object itself consumes 28 bytes. The size of a list `list1 = [5, 10, 15, 70]` can be calculated with:
 
-`64 + 8 * len(list1) + 28 * len(list1) = 88 b (list) + 84 b (int elements) = 172 bytes`
+`56 + 8 * len(list1) = 56 b (list) + 32 b (int elements) = 88 bytes`
 
-Array from module array without any elements (`array1 = array.array('X')` where 'X' is a [type of array](https://docs.python.org/3/library/array.html)) consumes 64 bytes. For every new element, it needs another X bytes for the reference to the new object. The size of an array with signed int values (one element = 4 bytes) `array1 = array.array('i', [5, 10, 15])` can be calculated with:
+Array from module array without any elements (`array1 = array.array('X')` where 'X' is a [type of array](https://docs.python.org/3/library/array.html)) consumes 80 bytes. For every new element, it needs another X bytes for the reference to the new object. The size of an array with signed int values (one element = 4 bytes) `array1 = array.array('i', [5, 10, 15,70])` can be calculated with:
 
-`64 + 4 * len(array1) = 88 bytes`
+`80 + 4 * len(array1) = 96 bytes`
 
-NumPy array without any elements (`n1 = np.array([])`) consumes 96 bytes. For every new element, it also needs another 8 bytes for the reference to the new object. The size of a numpy array `n1 = np.array([5, 10, 15])`, where elements are of int64 type, can be calculated with:
+NumPy array without any elements (`n1 = np.array([])`) consumes 112 bytes. For every new element, it also needs another 4 bytes for the reference to the new object. The size of a numpy array `n1 = np.array([5, 10, 15, 70])` with int64 elements can be calculated with:
 
-`96 + 8 * len(n1) = 120 bytes`
+`112 + 4 * len(n1) = 128 bytes`
 
-Even though array from module `array` consumes less memory, NumPy arrays have better runtime.
-
-The code `merge.py`:
-- Creates three identical built-in lists L1 and L2, arrays A1 and A2 and numpy arrays N1 and N2 in a range of 10000000
+Script `merge.py`:
+- Creates identical built-in lists L1 and L2, arrays A1 and A2 and numpy arrays N1 and N2 in a range of 10000000
 - Merge two lists, two arrays and two numpy arrays
 
-The code `zip.py`:
+Script `zip.py`:
 - Creates two identical built-in lists L1 and L2 and numpy arrays N1 and N2
 - Zip two lists and two numpy arrays
 
-The code `deco_time.py`:
-- Has a decorator which counts the time of execution of functions and prints it
+Script `deco_time.py`:
+- Decorator which counts execution time of each function
+
+| Type        | Create 2 Obejcts, ms | Merge 2 Objects, ms | Zip 2 Objects, ms |
+|-------------|----------------------|---------------------|-------------------|
+| List        | 0.3041923            | 0.1191883           | 1.64140582        |
+| Array       | 1.9021804            | 0.0562086           |                   |
+| Numpy Array | 0.0229261            | 0.0290024           | 0.04200125        |
 
 
 ## [Analyse CSV using Pandas](https://github.com/LSIND/intro-python3-analysis/tree/master/EmployeesCounts)
@@ -167,12 +181,8 @@ Create a dataframe from .csv file containing information about Employee and his 
 | 2   | Green    | Edna      | 8/28/2018 | 7:27:00  |
 | ... | ...      |  ...      | ...       | ...      |
 
-The code:
+Script:
  - reads all data from .csv file containing employees names and hire dates/time using *pandas* module into dataframe
-     ```python
-     import pandas as pd
-     ```
-
  - converts column 'HireDate' to date format *%Y-%m-%d*
  - creates series of column 'HireDate' and applies a condition to it within a period
  - prints number of occurrences in the series (hired people per date)
