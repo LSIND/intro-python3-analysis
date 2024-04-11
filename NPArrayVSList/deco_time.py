@@ -10,7 +10,7 @@ def fdeco(func):
         start = time.time()
         res = func(*args)
         end = time.time()
-        print(f'Time of {func.__name__} : {end - start} ms')
+        print(f'Exec time {func.__name__} : {end - start} ms')
         print('-'*10)
         return res
     return wrapfunc

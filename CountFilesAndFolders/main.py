@@ -32,7 +32,8 @@ def count_files(userpath, ext = None):
                     
                 for filename in files:
                     count_files += 1
-                print(f'{(len(path) - 2) * "--"}> {os.path.basename(root)} \t {count_dirs} folders, {count_files} files')
+                if count_files < 60:
+                    print(f'{(len(path) - 2) * "--"}> {os.path.basename(root)} \t {count_dirs} folders, {count_files} files')
     else:
         print(f'{userpath} is not a folder or it doesnt exist. Input correct folder!')
 

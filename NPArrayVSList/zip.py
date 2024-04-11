@@ -27,7 +27,7 @@ def zip_numpy_arr(np1, np2):
     #print(result[0][0:10])          # dimensions: 1 : SIZE : 2
 
 if __name__ == '__main__':
-    SIZE = 10000000   # size of array
+    SIZE = 100000000   # size of array
     # create arrays
     l1, l2= create_lists(SIZE)
     n1, n2 = create_numpy_arrays(SIZE)    
